@@ -1,0 +1,29 @@
+<br>
+<form #form="ngForm" (submit)="onSubmit()">
+    <div *ngIf ="sucesso == true ">
+        <p style="color:green;">Cliente Salvo com sucesso</p>
+    </div> 
+    <div *ngIf ="sucesso == false ">
+        <p style="color:red;">{{erro}}</p>
+    </div>
+    <select [(ngModel)]="servico.id_cliente" [ngModelOptions]={standalone:true}>
+        <option value="">Selecione...</option>
+        <option *ngFor="let cliente of clientes" [ngValue]="cliente.cpf"> {{ cliente.nome }}</option>
+    </select>
+    <br>
+    <div>
+        <span>
+            <label>Descricao</label>
+            <br>
+            <input type="text" class="input-card" id="nome" name="nome" placeholder="Descição" autocomplete="off" [(ngModel)] ="servico.descricao"/>
+        </span>
+    </div>
+    <span>
+        <label>Preco</label>
+        <br>
+        <input type="text" class="input-card" id="preco" name="preco" placeholder="Preco" autocomplete="off" [(ngModel)] ="servico.preco"/>
+    </span>
+    <div class="box-pulse">
+        <button type="submit">Enviar</button>
+   </div>
+</form>

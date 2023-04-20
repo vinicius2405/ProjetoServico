@@ -1,0 +1,31 @@
+<br>
+<div>
+    <button routerLink="/clienteInserir">+</button>
+</div>
+<div *ngIf="msgSucesso">
+    <p> {{msgSucesso}} </p>
+</div>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>ID</th>
+            <th>DATA DE CADASTRO</th>
+            <th>EDITAR</th>
+            <th>EXCLUIR</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let cliente of clientes">
+            <td> {{cliente.nome}} </td>
+            <td> {{cliente.cpf}} </td>
+            <td> {{cliente.id}} </td>
+            <td> {{cliente.dataCadastro}} </td>
+            <td><button routerLink = "/clienteInserir/{{cliente.id}}">+-</button></td>
+            <td><button (click) = "excluir(cliente.id)">-</button></td>
+        </tr>
+    </tbody>
+    </table>
+</div>
