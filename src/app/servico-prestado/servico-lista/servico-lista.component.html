@@ -1,1 +1,27 @@
-<p>servico-lista works!</p>
+<button (click) = "adicionar()">+</button>
+
+<form #form ="ngForm" (submit)="onSubimit()">
+    <select [(ngModel)] = "cliente_id" name = "cpf">
+        <option value="">Selecione o cliente</option>
+        <option *ngFor="let clientes of cliente" [value]="clientes.cpf"> {{clientes.nome}}</option>
+    </select>
+    <br>
+    <button type="submit">Pesquisar Serviço</button>
+</form>
+
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>DESCRIÇÃO</th>
+            <th>PREÇO</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let servicos of servico">
+            <td> {{servicos.descricao}} </td>
+            <td> {{servicos.valor}} </td>
+        </tr>
+    </tbody>
+    </table>
+</div>

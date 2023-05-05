@@ -4,13 +4,22 @@ import { ClienteFormsComponent } from './clientes/cliente-forms/cliente-forms.co
 import { ClienteListaComponent } from './clientes/cliente-lista/cliente-lista.component';
 import { HomePageComponent } from './home/home-page/home-page.component';
 import { ServicoFormComponent } from './servico-prestado/servico-form/servico-form.component';
+import { ServicoListaComponent } from './servico-prestado/servico-lista/servico-lista.component';
+import { LoginComponent } from './login/login.component';
+import { TamplateComponent } from './tamplate/tamplate.component';
 
 const routes: Routes = [
-  {path:"home",component:HomePageComponent},
-  {path:"clienteInserir",component:ClienteFormsComponent},
-  {path:"clienteInserir/:id",component:ClienteFormsComponent},
-  {path:"clienteLista",component:ClienteListaComponent},
-  {path:"servicoInserir", component:ServicoFormComponent}
+  {path:"login",component:LoginComponent},
+  {path:"",component:TamplateComponent, children:[
+    {path:"home",component:HomePageComponent},
+    {path:"clienteInserir",component:ClienteFormsComponent},
+    {path:"clienteInserir/:id",component:ClienteFormsComponent},
+    {path:"clienteLista",component:ClienteListaComponent},
+    {path:"servicoInserir", component:ServicoFormComponent},
+    {path:"servicoBusca", component:ServicoListaComponent}
+
+]}
+  
 ];
 
 @NgModule({

@@ -9,13 +9,19 @@ import { HomeModule } from './home/home.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.module';
 import { ServicoService } from './servico.service';
+import { TamplateComponent } from './tamplate/tamplate.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TamplateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     ClientesModule,

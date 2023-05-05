@@ -1,0 +1,27 @@
+<br>
+<form #form = "ngForm" (ngSubmit)="onSubmit()">
+    <br>
+    <h3>{{cadastrando ? "Cadastrar novo usuário" : "entrar"}}</h3>
+    <div>
+        <span>
+            <label>Login</label>
+            <input/>
+            <br>
+        </span>
+    </div>
+    <span>
+        <label>Senha</label>
+        <input/>
+        <br>
+    </span>
+    
+    <div class="box-pulse" *ngIf="!cadastrando">
+        <button type="submit">Entrar</button>
+   </div>
+    <div class="box-pulse" *ngIf="cadastrando">
+        <button type="submit">Cadastrar</button>
+   </div>
+</form>
+<div>
+    <h5>Caso não possua cadastro, clique <a href="#"(click)="clicar($event)">aqui</a></h5>
+</div>
