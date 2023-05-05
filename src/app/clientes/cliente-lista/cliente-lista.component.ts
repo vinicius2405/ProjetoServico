@@ -11,6 +11,7 @@ import { Cliente } from '../cliente';
 export class ClienteListaComponent implements OnInit {
 
   msgSucesso? :string 
+  msgErro?:string
   clientes? : Cliente[]; 
   constructor(private service : ClienteServiceService, private router:Router) { }
 
@@ -25,6 +26,9 @@ export class ClienteListaComponent implements OnInit {
     this.service.excluir(id).subscribe(res=>{
       this.msgSucesso = "Cliente excluido com sucesso"
       this.ngOnInit();
+    },erro=>{
+      this.msgSucesso = undefined
+      this.msgErro = erro.error.erroE;
     })
   }
 

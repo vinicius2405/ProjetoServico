@@ -4,14 +4,16 @@
     <h3>{{cadastrando ? "Cadastrar novo usuário" : "entrar"}}</h3>
     <div>
         <span>
+            <input [(ngModel)] = "login" name="login">
             <label>Login</label>
-            <input/>
+            
             <br>
         </span>
     </div>
     <span>
+        <input [(ngModel)] = "senha" name="senha"/>
         <label>Senha</label>
-        <input/>
+        
         <br>
     </span>
     
@@ -19,7 +21,7 @@
         <button type="submit">Entrar</button>
    </div>
     <div class="box-pulse" *ngIf="cadastrando">
-        <button type="submit">Cadastrar</button>
+        <button type="button" (click)="enviar()">Cadastrar</button>
    </div>
 </form>
 <div>

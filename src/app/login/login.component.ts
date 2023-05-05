@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Usuario } from './Usuario';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ export class LoginComponent implements OnInit {
   loginErro?:boolean;
   login?:string;
   senha?:string;
-
+  usuario? : Usuario
 
   constructor(private router : Router ) { }
 
@@ -27,10 +29,16 @@ export class LoginComponent implements OnInit {
   }
 
 
+  enviar(){
+    this.usuario = new Usuario();
+
+
+  }
+
+
   clicar(event : any){
     event.preventDefault();
     this.cadastrando = true;
-
   }
 
 }

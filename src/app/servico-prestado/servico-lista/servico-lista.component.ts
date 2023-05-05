@@ -12,6 +12,7 @@ import { ServicoService } from 'src/app/servico.service';
 })
 export class ServicoListaComponent implements OnInit {
 
+  msgErro?:string;
   cliente?:Cliente[];
   cliente_id?:string;
   servico?:Servico[];
@@ -30,6 +31,9 @@ export class ServicoListaComponent implements OnInit {
     console.log(this.cliente_id)
     this.servicoService.listarServicoCpf(this.cliente_id as string ).subscribe(res=>{
       this.servico = res;
+      if(this.servico.length <=0 ){
+        this.msgErro = "Esse cliente não possui serviços"
+      }
     })
 
   }

@@ -5,6 +5,9 @@
 <div *ngIf="msgSucesso">
     <p> {{msgSucesso}} </p>
 </div>
+<div *ngIf="!msgSucesso">
+    <p> {{msgErro}} </p>
+</div>
 <div>
     <table>
         <thead>
