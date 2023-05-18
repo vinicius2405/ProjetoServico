@@ -7,11 +7,12 @@ import { ServicoFormComponent } from './servico-prestado/servico-form/servico-fo
 import { ServicoListaComponent } from './servico-prestado/servico-lista/servico-lista.component';
 import { LoginComponent } from './login/login.component';
 import { TamplateComponent } from './tamplate/tamplate.component';
+import { ValidadorGuard } from './guards/validador.guard';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"",component:TamplateComponent, children:[
-    {path:"home",component:HomePageComponent},
+    {path:"home",component:HomePageComponent, canActivate:[ValidadorGuard]},
     {path:"clienteInserir",component:ClienteFormsComponent},
     {path:"clienteInserir/:id",component:ClienteFormsComponent},
     {path:"clienteLista",component:ClienteListaComponent},

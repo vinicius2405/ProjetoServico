@@ -6,7 +6,6 @@
           <h2 class="title">Cadastro de cliente
           </h2>
         </div>
-        <form #clienteForm="ngForm" (ngSubmit) = "onSubmit()">
             <div *ngIf ="sucesso == true ">
                 <p style="color:green;">Cliente Salvo com sucesso</p>
             </div> 
@@ -14,31 +13,34 @@
                 <p style="color:red;">{{erro}}</p>
             </div>
 
-            <span>
-                <input  [(ngModel)] = "cliente.nome" type="text" class="input-card" id="nome" name="nome" placeholder="Nome" autocomplete="off" />
-                <label>Nome</label>
-            </span>
-            <span>
-                <input [(ngModel)] = "cliente.cpf" type="text" class="input-card" id="cpf" name="cpf" placeholder="CPF" autocomplete="off" />
-                <label>CPF</label>
-            </span>
-            <span *ngIf = "cliente.id">
-                <input [(ngModel)] = "cliente.id" type="text" class="input-card" disabled = "true" name="id" autocomplete="off" />
-                <label >ID</label>
-            </span>
-            <span *ngIf = "cliente.id">
-                <input [(ngModel)] = "cliente.dataCadastro" type="text" class="input-card" disabled = "true" name="dataCadastro" autocomplete="off" />
-                <label >Data de cadastro</label>
-            </span>
-            <div class="box-pulse" *ngIf="!cliente.id">
-                 <button type="submit">Salvar cliente</button>
-            </div>
-            <div class="box-pulse" *ngIf="cliente.id">
-                <button type="submit">Atualizar cliente</button>
-           </div>
-           <div class="box-pulse" (click)="voltar()">
-            <button type="submit">Voltar</button>
-       </div>
-        </form>
+            <h2>Formulário</h2>
+  
+  <form #clienteForm ="ngForm" (ngSumit) = "onSubmit()">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" [(ngModel)] = "cliente.nome">
+
+    <label for="cpf">CPF</label>
+    <input type="Cpf" id="email" name="cpf" placeholder="Digite seu cpf" [(ngModel)] = "cliente.cpf">
+
+    <span *ngIf = "cliente.id">
+        <label >ID</label>
+        <input [(ngModel)] = "cliente.id" type="text" class="input-card" disabled = "true" name="id" autocomplete="off" />
+    </span>
+    <span *ngIf = "cliente.id">
+        <label >Data de cadastro</label>
+        <input [(ngModel)] = "cliente.dataCadastro" type="text" class="input-card" disabled = "true" name="dataCadastro" autocomplete="off" />
+    </span>
+
+    <div class="buttons">
+      <input type="submit" value="Salvar cliente">
+      <div class="box-pulse" *ngIf="cliente.id">
+        <input type="submit" value="Atualizar cliente"> 
+     </div>
+      
+    </div>
+    <div class="box-pulse" (click)="voltar()">
+        <input type="submit" value="Voltar">
+   </div>
+  </form>
     </div>
 </div>

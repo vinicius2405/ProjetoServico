@@ -12,6 +12,7 @@ import { ServicoService } from './servico.service';
 import { TamplateComponent } from './tamplate/tamplate.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { UsuarioService } from './usuario.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [
     ClienteServiceService,
-    ServicoService
+    ServicoService,
+    UsuarioService
   ],
   bootstrap: [AppComponent]
 })

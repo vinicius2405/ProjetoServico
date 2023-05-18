@@ -1,29 +1,25 @@
-<br>
-<form #form = "ngForm" (ngSubmit)="onSubmit()">
-    <br>
-    <h3>{{cadastrando ? "Cadastrar novo usuário" : "entrar"}}</h3>
-    <div>
-        <span>
-            <input [(ngModel)] = "login" name="login">
-            <label>Login</label>
-            
-            <br>
-        </span>
-    </div>
-    <span>
-        <input [(ngModel)] = "senha" name="senha"/>
-        <label>Senha</label>
-        
-        <br>
-    </span>
-    
-    <div class="box-pulse" *ngIf="!cadastrando">
-        <button type="submit">Entrar</button>
+<div class="container">
+    <form class="login-form" #form = "ngForm" (ngSubmit)="onSubmit()">
+        <h3>{{cadastrando ? "Cadastrar novo usuário" : "Entrar"}}</h3>
+      <div class="form-group">
+        <label for="username">Login:</label>
+        <input [(ngModel)] = "login" type="text" id="login" name="login" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Senha:</label>
+        <input type="password" id="password"  required [(ngModel)] = "senha" name="senha"/>
+      </div>
+      <button *ngIf="!cadastrando" type="submit">Entrar</button>
+      <div class="box-pulse" *ngIf="cadastrando">
+        <button type="submit" (click)="enviar()">Cadastrar</button>
    </div>
-    <div class="box-pulse" *ngIf="cadastrando">
-        <button type="button" (click)="enviar()">Cadastrar</button>
-   </div>
-</form>
+   <br>
+   <div class="box-pulse" *ngIf="cadastrando">
+    <button type="button" (click)="voltar()">Voltar</button>
+</div>
 <div>
     <h5>Caso não possua cadastro, clique <a href="#"(click)="clicar($event)">aqui</a></h5>
 </div>
+    </form>
+  </div>
+

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Usuario } from './Usuario';
+import { UsuarioService } from '../usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -16,25 +17,42 @@ export class LoginComponent implements OnInit {
   senha?:string;
   usuario? : Usuario
 
-  constructor(private router : Router ) { }
+  storage : Storage = localStorage;
+
+  constructor(private router : Router, private usuarioService : UsuarioService ) { }
 
   ngOnInit(): void {
+    this.storage.clear();
   }
 
 
   onSubmit(){
-    console.log("ola")
-    this.router.navigate(["/home"]);
+    this.usuarioService.buscar(this.login as string).subscribe(res=>{
+      if(res.login == this.login && res.senha == this.senha){
+        this.storage.setItem("login",this.login as string);
+        this.router.navigate(["home"])
+      }else
+      alert("Senha incorreta");
+    },res=>{
+      alert("Login incorreto");
+    })
     
   }
 
 
   enviar(){
     this.usuario = new Usuario();
-
+    this.usuario.login = this.login;
+    this.usuario.senha = this.senha;
+    this.usuarioService.cadastrar(this.usuario).subscribe(res=>{
+      alert("Usuário inserido com sucesso");
+    });
 
   }
 
+  voltar(){
+    this.cadastrando = false
+  }
 
   clicar(event : any){
     event.preventDefault();
