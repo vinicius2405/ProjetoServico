@@ -15,7 +15,7 @@
 
             <h2>Formulário</h2>
   
-  <form #clienteForm ="ngForm" (ngSumit) = "onSubmit()">
+  <form #clienteForm ="ngForm" (ngSubmit) = "onSubmit()">
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" placeholder="Digite seu nome" [(ngModel)] = "cliente.nome">
 
@@ -32,7 +32,9 @@
     </span>
 
     <div class="buttons">
+    <div class="box-pulse" *ngIf="!cliente.id">
       <input type="submit" value="Salvar cliente">
+    </div>
       <div class="box-pulse" *ngIf="cliente.id">
         <input type="submit" value="Atualizar cliente"> 
      </div>

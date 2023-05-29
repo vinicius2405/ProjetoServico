@@ -22,8 +22,8 @@ export class ClienteFormsComponent implements OnInit {
   
 
   ngOnInit(): void {
-    
-
+    this.params = this.rota.snapshot.params["id"]
+    console.log(this.params)
     if(this.params){
       this.service.buscar(this.params).subscribe(res=>{
         this.cliente = res;
