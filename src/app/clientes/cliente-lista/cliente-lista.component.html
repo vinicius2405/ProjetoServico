@@ -1,6 +1,6 @@
 <br>
 <div>
-    <button routerLink="/clienteInserir">+</button>
+    <button class="add-button" routerLink="/clienteInserir"><i class="fas fa-plus"></i>Adicionar</button>
 </div>
 <div *ngIf="msgSucesso">
     <p> {{msgSucesso}} </p>
@@ -26,8 +26,8 @@
             <td> {{cliente.cpf}} </td>
             <td> {{cliente.id}} </td>
             <td> {{cliente.dataCadastro}} </td>
-            <td><button routerLink = "/clienteInserir/{{cliente.id}}">+-</button></td>
-            <td><button (click) = "excluir(cliente.id)">-</button></td>
+            <td><button class="edit-button" routerLink = "/clienteInserir/{{cliente.id}}"> <i class="fas fa-edit">Editar</i></button></td>
+            <td><button class="delete-button" (click) = "excluir(cliente.id)"> <i class="fas fa-trash"></i>Excluir</button></td>
         </tr>
     </tbody>
     </table>

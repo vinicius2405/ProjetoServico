@@ -1,7 +1,7 @@
-<button (click) = "adicionar()">+</button>
+<button class="add-button" (click) = "adicionar()"><i class="fas fa-plus"></i>Adicionar</button>
 
 <form #form ="ngForm" (submit)="onSubimit()">
-    <select [(ngModel)] = "cliente_id" name = "cpf">
+    <select id="search-select" [(ngModel)] = "cliente_id" name = "cpf">
         <option value="">Selecione o cliente</option>
         <option *ngFor="let clientes of cliente" [value]="clientes.cpf"> {{clientes.nome}}</option>
     </select>

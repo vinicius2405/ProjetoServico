@@ -1,6 +1,36 @@
-th{
-    padding-left: 100px;
-}
-td{
-    padding-left: 100px;
-}
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  table th {
+    background-color: #f2f2f2;
+  }
+  
+  .add-button {
+    margin-bottom: 10px;
+  }
+  
+  .add-button i,
+  .edit-button i,
+  .delete-button i {
+    margin-right: 5px;
+  }
+  
+  .edit-button,
+  .delete-button {
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .edit-button:hover,
+  .delete-button:hover {
+    background-color: #f2f2f2;
+  }

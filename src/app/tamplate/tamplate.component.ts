@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TamplateComponent implements OnInit {
 
+  Storage : Storage = localStorage;
+  logado!:boolean;
   constructor() { }
 
   ngOnInit(): void {
+
+    if(this.Storage.length > 0 ){
+      this.logado = true;
+    }else{
+      this.logado = false
+    }
+  }
+
+
+  deslogar(){
+    this.Storage.clear();
+    location.reload();
   }
 
 }

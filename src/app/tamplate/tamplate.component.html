@@ -1,12 +1,24 @@
-<div>
-    <h1>Bem vindo ao Inicio, clique nas opções abaixo pra navegar</h1>
-  </div>
-  <div>
-    <a routerLink = "home">Home</a>
-    <a routerLink= "clienteLista">Lista de Clientes</a>
-    <a routerLink = "servicoBusca">Buscar servico</a>
-    <a routerLink = "login">Login</a>
-  </div>
+  <header>
+    <nav>
+      <div class="left-links">
+      <ul>
+    <li><a routerLink = "home">Home</a></li>
+    <li><a routerLink= "clienteLista">Lista de Clientes</a></li>
+    <li><a routerLink = "servicoBusca">Buscar servico</a></li>
+    </ul>
+      </div>
+<div class="right-links">
+  <ul>
+      <li><a *ngIf="!logado" routerLink = "login">Login</a></li>
+      <li><button *ngIf="logado" (click)="deslogar()"><i class="fas fa-sign-out-alt"></i>Sair</button></li>
+    
+  </ul>
+</div>
+      </nav>
+</header>
   <div>
     <router-outlet></router-outlet>
   </div>
+  <footer>
+    <p>Qualquer coisa no footer</p>
+  </footer>

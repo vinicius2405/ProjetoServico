@@ -1,3 +1,35 @@
-a{
+header {
+    background-color: #f1f1f1;
     padding: 10px;
-}
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .left-links ul,
+  .right-links ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .left-links li,
+  .right-links li {
+    margin-right: 10px;
+  }
+  
+  .left-links li a,
+  .right-links li a {
+    text-decoration: none;
+  }
+  
+  /* Estilos para o footer */
+  footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+  }
