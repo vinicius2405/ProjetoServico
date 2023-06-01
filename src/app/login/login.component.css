@@ -42,7 +42,7 @@
     cursor: pointer;
   }
 
-  button[type="button"]{
+  .voltar{
     background-color: #e01d6e;
     width: 100%;
     padding: 10px;
@@ -54,4 +54,15 @@
 
   h3{
     text-align: center;
+  }
+
+  .cadastrar{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
   }

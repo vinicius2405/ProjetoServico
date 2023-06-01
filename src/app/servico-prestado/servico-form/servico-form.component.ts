@@ -27,10 +27,10 @@ export class ServicoFormComponent implements OnInit {
     })
   }
   onSubmit(){
+    console.log(this.servico)
     this.serviceS.salvarServico(this.servico).subscribe(res=>{
-      this.sucesso = true;
       this.servico = new Servico();
-
+      this.sucesso = true;
     },erro=>{
       this.erro = "Erro ao cadastrar o cliente"
     })

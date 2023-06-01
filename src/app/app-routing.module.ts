@@ -12,12 +12,12 @@ import { ValidadorGuard } from './guards/validador.guard';
 const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"",component:TamplateComponent, children:[
-    {path:"home",component:HomePageComponent, canActivate:[ValidadorGuard]},
-    {path:"clienteInserir",component:ClienteFormsComponent},
-    {path:"clienteInserir/:id",component:ClienteFormsComponent},
-    {path:"clienteLista",component:ClienteListaComponent},
-    {path:"servicoInserir", component:ServicoFormComponent},
-    {path:"servicoBusca", component:ServicoListaComponent}
+    {path:"home",component:HomePageComponent},
+    {path:"clienteInserir",component:ClienteFormsComponent,canActivate:[ValidadorGuard]},
+    {path:"clienteInserir/:id",component:ClienteFormsComponent,canActivate:[ValidadorGuard]},
+    {path:"clienteLista",component:ClienteListaComponent,canActivate:[ValidadorGuard]},
+    {path:"servicoInserir", component:ServicoFormComponent,canActivate:[ValidadorGuard]},
+    {path:"servicoBusca", component:ServicoListaComponent,canActivate:[ValidadorGuard]}
 
 ]}
   

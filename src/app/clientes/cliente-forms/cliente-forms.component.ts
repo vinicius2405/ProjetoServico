@@ -34,6 +34,9 @@ export class ClienteFormsComponent implements OnInit {
   }
 
   onSubmit(){
+    if(this.cliente.nome == null || this.cliente.cpf == null ){
+      alert("Preencha os campos antes de enviar");
+    }else{
     if(this.params){
       this.service.editar(this.cliente,this.params).subscribe(res=>{
         this.router.navigate(["clienteLista"]);
@@ -49,6 +52,7 @@ export class ClienteFormsComponent implements OnInit {
       })
 
     }
+  }
 }
 
 voltar(){

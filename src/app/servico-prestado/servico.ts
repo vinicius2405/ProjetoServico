@@ -1,5 +1,5 @@
 export class Servico{
-    id_cliente?:string
+    id?:string
     descricao?:string
     valor?:number
 }

@@ -11,13 +11,13 @@
       </div>
       <button *ngIf="!cadastrando" type="submit">Entrar</button>
       <div class="box-pulse" *ngIf="cadastrando">
-        <button type="submit" (click)="enviar()">Cadastrar</button>
+        <button class ="cadastrar" type="button" (click)="enviar()">Cadastrar</button>
    </div>
    <br>
    <div class="box-pulse" *ngIf="cadastrando">
-    <button type="button" (click)="voltar()">Voltar</button>
+    <button class="voltar" type="button" (click)="voltar()">Voltar</button>
 </div>
-<div>
+<div *ngIf="!cadastrando">
     <h5>Caso não possua cadastro, clique <a href="#"(click)="clicar($event)">aqui</a></h5>
 </div>
     </form>

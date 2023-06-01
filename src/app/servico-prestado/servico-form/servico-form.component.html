@@ -1,4 +1,5 @@
 <br>
+<div class="container">
 <form #form="ngForm" (submit)="onSubmit()">
     <div *ngIf ="sucesso == true ">
         <p style="color:green;">Cliente Salvo com sucesso</p>
@@ -6,24 +7,25 @@
     <div *ngIf ="sucesso == false ">
         <p style="color:red;">{{erro}}</p>
     </div>
-    <select [(ngModel)]="servico.id_cliente" [ngModelOptions]={standalone:true}>
+    <select id="product-select" [(ngModel)]="servico.id" [ngModelOptions]={standalone:true}>
         <option value="">Selecione...</option>
         <option *ngFor="let cliente of clientes" [ngValue]="cliente.cpf"> {{ cliente.nome }}</option>
     </select>
     <br>
     <div>
         <span>
-            <label>Descricao</label>
+            <label for="description-input">Descricao</label>
             <br>
-            <input type="text" class="input-card" id="nome" name="nome" placeholder="Descição" autocomplete="off" [(ngModel)] ="servico.descricao"/>
+            <input type="text" class="input-card" id="description-input" name="nome" placeholder="Descição" autocomplete="off" [(ngModel)] ="servico.descricao"/>
         </span>
     </div>
     <span>
-        <label>Preco</label>
+        <label for="price-input">Preco</label>
         <br>
-        <input type="text" class="input-card" id="preco" name="preco" placeholder="Preco" autocomplete="off" [(ngModel)] ="servico.valor"/>
+        <input type="text" class="input-card" id="price-input" name="preco" placeholder="Preco" autocomplete="off" [(ngModel)] ="servico.valor"/>
     </span>
-    <div class="box-pulse">
+    <div class="submit-butto">
         <button type="submit">Enviar</button>
    </div>
-</form>-
+</form>
+</div>
