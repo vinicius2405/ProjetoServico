@@ -33,6 +33,8 @@ export class ServicoListaComponent implements OnInit {
       this.servico = res;
       if(this.servico.length <=0 ){
         this.msgErro = "Esse cliente não possui serviços"
+      }else{
+        this.msgErro = undefined;
       }
     })
 
